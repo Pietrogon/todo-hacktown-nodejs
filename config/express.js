@@ -5,6 +5,8 @@ const consign     = require('consign');
 
 module.exports = () => {
   const app = express();
+  
+  createTables = require('../config/createTables')();
 
   // SETANDO VARIÁVEIS DA APLICAÇÃO
   app.set('port', process.env.PORT || config.get('server.port'));
@@ -13,7 +15,6 @@ module.exports = () => {
   app.use(bodyParser.json());
 
   consign({cwd: 'api'})
-    .then('data')
     .then('controllers')
     .then('routes')
     .into(app);
