@@ -3,7 +3,7 @@ module.exports = app => {
 
   app.route('/api/category')
     .get(controller.getListaCategory)
-    .push(controller.createCategory);
+    .post(controller.createCategory);
   
   app.route('/api/category/:categoryId')
     .get(controller.getCategory)

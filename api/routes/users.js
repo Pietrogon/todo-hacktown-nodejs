@@ -3,7 +3,7 @@ module.exports = app => {
 
   app.route('/api/users')
     .get(controller.getListaUsers)
-    .push(controller.createUser);
+    .post(controller.createUser);
   
   app.route('/api/users/:userId')
     .get(controller.getUser)
