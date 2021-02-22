@@ -14,7 +14,7 @@ createTables = () => {
 
 	console.log(db.run(`
 		CREATE TABLE IF NOT EXISTS categorys(
-			pk_id primary key autoincrement,
+			pk_id integer primary key autoincrement,
 			userId integer NOT NULL,
 			name text NOT NULL		
 		);

@@ -36,5 +36,5 @@ module.exports = app => {
     res.status(200).json(db.run("INSERT INTO categorys (userId, name) VALUES('"+category.userId+"','"+category.name +"');"));
   }  
 
-  return users;
+  return category;
 }

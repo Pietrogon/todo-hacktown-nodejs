@@ -12,14 +12,12 @@ module.exports = app => {
   task.getTask = (req, res) => {
     let params = req.params;
     let sql = db.run('select * from tasks where pk_id = ' + params.tasksId)
-    console.log(sql);
     res.status(200).json(sql);
   }
 
   task.deleteTask = (req, res) => {
     let params = req.params;
     let sql = db.run('delete from tasks where pk_id = ' + params.tasksId)
-    console.log(sql);
     res.status(200).json(sql);
   }
 
@@ -33,8 +31,8 @@ module.exports = app => {
 
   task.createTask = (req, res) => {
     var task = req.body;
-    res.status(200).json(db.run("INSERT INTO tasks (userId, categoryId, title, task) VALUES('"+task.userId+"',"+task.categoryId+"','"+task.title+"','"+task.task+"','" +task.status+"'"+");"));
+    res.status(200).json(db.run("INSERT INTO tasks (userId, categoryId, title, task, status) VALUES('"+task.userId+"','"+task.categoryId+"','"+task.title.replace("'","''")+"','"+task.task.replace("'","''")+"','" +task.status+"'"+");"));
   }  
 
-  return users;
+  return task;
 }
